@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм (простой)»
 
 * Студент: [Tatiana Pugacheva](https://up.htmlacademy.ru/javascript/27/user/1892769).
-* Наставник: `Неизвестно`.
+* Наставник: [Алексей Зольников](https://htmlacademy.ru/profile/id870391).
 
 ---
 
