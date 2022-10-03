@@ -1,4 +1,3 @@
-const testedString = '';
 const COMMENT_MAX_LENGTH = 140;
 
 /** Функция для проверки максимальной длины строки.
@@ -6,10 +5,10 @@ const COMMENT_MAX_LENGTH = 140;
  * @param {number} maxLength Максимальная длина строки
  * @returns {boolean} Возвращает **true**, если строка проходит проверку на максимальную длину, в противном случае - **false**
  * */
-const checkCommentLength = (checkedString, maxLength = COMMENT_MAX_LENGTH) =>
-  testedString.length <= maxLength;
+const checkCommentLength = (checkedString, maxLength) =>
+  checkedString.length <= maxLength;
 
-checkCommentLength(testedString);
+checkCommentLength('testedString', COMMENT_MAX_LENGTH);
 
 /** Функция, возвращающая случайное целое число из переданного диапазона включительно.
  * @param {number} from Первое значение для диапазона
@@ -19,7 +18,7 @@ checkCommentLength(testedString);
  *
  * [Random function documentation]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values}
  * */
-const randomNumber = (from, to) => {
+const getRandomNumber = (from, to) => {
   if (isNaN(from) || from < 0 || isNaN(to) || to < 0) {
     return NaN;
   }
@@ -34,7 +33,4 @@ const randomNumber = (from, to) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-for (let i = 1; i < 100; i++) {
-  // eslint-disable-next-line no-console
-  console.log(randomNumber(15, 1));
-}
+getRandomNumber(15, 1);
