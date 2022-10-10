@@ -39,7 +39,7 @@ const getPhotoDescription = (photo, index) => ({
   likes: getRandomNumber(15, 200),
   comments: getRandomNumber(0, 200),
   id: index + 1,
-  url: `photos/${index + 1}.jpg,`,
+  url: `photos/${index + 1}.jpg`,
 });
 
 const photosDescriptionsArray = Array.from({ length: PHOTOS_COUNT }).map(
