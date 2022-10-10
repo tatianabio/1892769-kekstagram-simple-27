@@ -34,7 +34,7 @@ const getRandomNumber = (from, to) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const getPhotoDescription = (photo, index) => ({
+const getPhotoDescription = (_, index) => ({
   description: `Описание фотографии: ${getRandomNumber(0, PHOTOS_COUNT)}`,
   likes: getRandomNumber(15, 200),
   comments: getRandomNumber(0, 200),
