@@ -1,5 +1,9 @@
 const COMMENT_MAX_LENGTH = 140;
 const PHOTOS_COUNT = 25;
+const LIKES_MIN_COUNT = 15;
+const LIKES_MAX_COUNT = 200;
+const COMMENTS_MIN_COUNT = 0;
+const COMMENTS_MAX_COUNT = 200;
 
 /** Функция для проверки максимальной длины строки.
  * @param {string} checkedString Тестируемая строка
@@ -36,15 +40,16 @@ const getRandomNumber = (from, to) => {
 
 const createPhotoDescriptionItem = (_, index) => ({
   description: `Описание фотографии: ${getRandomNumber(0, PHOTOS_COUNT)}`,
-  likes: getRandomNumber(15, 200),
-  comments: getRandomNumber(0, 200),
+  likes: getRandomNumber(LIKES_MIN_COUNT, LIKES_MAX_COUNT),
+  comments: getRandomNumber(COMMENTS_MIN_COUNT, COMMENTS_MAX_COUNT),
   id: index + 1,
   url: `photos/${index + 1}.jpg`,
 });
 
-const photosDescriptionsArray = Array.from({ length: PHOTOS_COUNT }).map(
+const photoDescriptionsArray = Array.from(
+  { length: PHOTOS_COUNT },
   createPhotoDescriptionItem
 );
 
 // eslint-disable-next-line no-console
-console.log(photosDescriptionsArray);
+console.log(photoDescriptionsArray);
