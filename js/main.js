@@ -34,7 +34,7 @@ const getRandomNumber = (from, to) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const getPhotoDescription = (_, index) => ({
+const createPhotoDescriptionItem = (_, index) => ({
   description: `Описание фотографии: ${getRandomNumber(0, PHOTOS_COUNT)}`,
   likes: getRandomNumber(15, 200),
   comments: getRandomNumber(0, 200),
@@ -43,7 +43,7 @@ const getPhotoDescription = (_, index) => ({
 });
 
 const photosDescriptionsArray = Array.from({ length: PHOTOS_COUNT }).map(
-  getPhotoDescription
+  createPhotoDescriptionItem
 );
 
 // eslint-disable-next-line no-console
