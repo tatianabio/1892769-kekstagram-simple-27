@@ -34,21 +34,17 @@ const getRandomNumber = (from, to) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const getPhotoDescription = () => ({
+const getPhotoDescription = (photo, index) => ({
   description: `Описание фотографии: ${getRandomNumber(0, PHOTOS_COUNT)}`,
   likes: getRandomNumber(15, 200),
   comments: getRandomNumber(0, 200),
+  id: index + 1,
+  url: `photos/${index + 1}.jpg,`,
 });
 
-const assignIdToPhoto = (photo, index) => {
-  photo['id'] = index + 1;
-  photo['url'] = `photos/${photo['id']}.jpg,`;
-  return photo;
-};
-
-const photosDescriptionsArray = Array.from(
-  { length: PHOTOS_COUNT },
+const photosDescriptionsArray = Array.from({ length: PHOTOS_COUNT }).map(
   getPhotoDescription
-).map(assignIdToPhoto);
+);
 
+// eslint-disable-next-line no-console
 console.log(photosDescriptionsArray);
