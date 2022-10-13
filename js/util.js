@@ -1,5 +1,3 @@
-// const COMMENT_MAX_LENGTH = 140;
-
 /** Функция для проверки максимальной длины строки.
  * @param {string} checkedString Тестируемая строка
  * @param {number} maxLength Максимальная длина строки
@@ -7,8 +5,6 @@
  * */
 const checkCommentLength = (checkedString, maxLength) =>
   checkedString.length <= maxLength;
-
-// checkCommentLength('testedString', COMMENT_MAX_LENGTH);
 
 /** Функция, возвращающая случайное целое число из переданного диапазона включительно.
  * @param {number} from Первое значение для диапазона
