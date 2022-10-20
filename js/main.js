@@ -1,4 +1,3 @@
-import { createPhotoDescriptionsArray } from './data.js';
+import { renderPictures } from './rendering-pictures.js';
 
-// eslint-disable-next-line no-console
-console.log(createPhotoDescriptionsArray());
+renderPictures();

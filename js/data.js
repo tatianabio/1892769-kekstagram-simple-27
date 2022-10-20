@@ -17,4 +17,4 @@ const createPhotoDescriptionItem = (_, index) => ({
 const createPhotoDescriptionsArray = () =>
   Array.from({ length: PHOTOS_COUNT }, createPhotoDescriptionItem);
 
-export { createPhotoDescriptionsArray };
+export default createPhotoDescriptionsArray;
