@@ -11,7 +11,6 @@ const checkCommentLength = (checkedString, maxLength) =>
  * @param {number} to Второе значение для диапазона
  * @returns {number} Возвращает случайное целое число из переданного диапазона включительно или NaN, если переданное
  * значение не число или меньше 0
- *
  * [Random function documentation]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values}
  * */
 const getRandomNumber = (from, to) => {
