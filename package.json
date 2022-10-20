@@ -21,9 +21,10 @@
   "license": "MIT",
   "dependencies": {},
   "scripts": {
-    "start": "browser-sync start --server --no-ui --files \"js/**/*.js\"",
+    "start1": "browser-sync start --server --no-ui --files \"js/**/*.js\"",
     "lint": "eslint js/",
-    "tsc":  "tsc js/main.ts"
+    "tsc":  "tsc",
+    "start": "yarn tsc && yarn start1"
 
   },
   "engines": {

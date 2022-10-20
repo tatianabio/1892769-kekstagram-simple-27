@@ -1,1 +1,1 @@
-var test = 51;
+import './rendering-pictures.js';

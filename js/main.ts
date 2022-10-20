@@ -1,1 +1,1 @@
-const test: number = 51;
+import './rendering-pictures.js';
