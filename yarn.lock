@@ -1568,6 +1568,11 @@ prettier@^2.7.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
   integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
 
+pristinejs@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/pristinejs/-/pristinejs-0.1.9.tgz#ded9c07c63dbc9f906931cbb603987d014481b34"
+  integrity sha512-RasEJ5wqe16mNQ6nUtf358Kr9NoqLHjiXdbYmdv5zf1TR4Rc4HHrP81gWAeVFXETzl0CAgHgAGNzSCzTWT4wFA==
+
 progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
