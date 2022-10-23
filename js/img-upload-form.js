@@ -6,22 +6,21 @@ const uploadCancelButton = document.querySelector('#upload-cancel');
 
 const onModalEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
-    evt.preventDefault();
     closeUploadForm();
   }
+  evt.preventDefault();
 };
 
 function openUploadForm() {
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
-
   document.addEventListener('keydown', onModalEscKeydown);
 }
 
 function closeUploadForm() {
   uploadModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
-
+  uploadInput.value = '';
   document.removeEventListener('keydown', onModalEscKeydown);
 }
 
