@@ -1,30 +1,40 @@
 import { isEscapeKey } from './util.js';
 
-/*найти инпут загрузки файла
-1) создать обработчик события загрузки файла:
-1. сделать форму видимой, убрать класс hidden
-2. body задаётся класс modal-open
-3. навесить обработчик нажатием на кнопку #upload-cancel, либо нажатием клавиши Esc => форма закрывается
+const uploadInput = document.querySelector('#upload-file');
+const uploadModal = document.querySelector('.img-upload__overlay');
+const uploadCancelButton = document.querySelector('#upload-cancel');
 
-function openUserModal () {
-  // 1. Показать окно
-  // 2. Добавить обработчики для закрытия
-  // 3. Прочая логика
-}
-
-function closeUserModal () {
-  // 1. Скрыть окно
-  // 2. Удалить обработчики для закрытия
-  // 3. Прочая логика
-}
-*/
-
-const imgUploadInput = document.querySelector('#upload-file');
-
-const openUploadForm = () => {
-  imgUploadInput.addEventListener('change', () => {});
+const onModalEscKeydown = (evt) => {
+  if (isEscapeKey(evt)) {
+    evt.preventDefault();
+    closeUploadForm();
+  }
 };
 
-isEscapeKey();
+function openUploadForm() {
+  uploadModal.classList.remove('hidden');
+  document.body.classList.add('modal-open');
 
-export { openUploadForm };
+  document.addEventListener('keydown', onModalEscKeydown);
+}
+
+function closeUploadForm() {
+  uploadModal.classList.add('hidden');
+  document.body.classList.remove('modal-open');
+
+  document.removeEventListener('keydown', onModalEscKeydown);
+}
+
+const onUploadInputChange = () => {
+  uploadInput.addEventListener('change', () => {
+    openUploadForm();
+  });
+};
+
+const onUploadCancelButtonClick = () => {
+  uploadCancelButton.addEventListener('click', () => {
+    closeUploadForm();
+  });
+};
+
+export { onUploadInputChange, onUploadCancelButtonClick };
