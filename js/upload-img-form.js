@@ -20,9 +20,7 @@ function closeUserModal () {
 const imgUploadInput = document.querySelector('#upload-file');
 
 const openUploadForm = () => {
-  imgUploadInput.addEventListener('change', () => {
-    console.log('test');
-  });
+  imgUploadInput.addEventListener('change', () => {});
 };
 
 export { openUploadForm };
