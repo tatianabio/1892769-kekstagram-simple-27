@@ -28,4 +28,6 @@ const getRandomNumber = (from, to) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-export { getRandomNumber, checkCommentLength };
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export { getRandomNumber, checkCommentLength, isEscapeKey };

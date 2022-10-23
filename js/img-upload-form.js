@@ -1,3 +1,5 @@
+import { isEscapeKey } from './util.js';
+
 /*найти инпут загрузки файла
 1) создать обработчик события загрузки файла:
 1. сделать форму видимой, убрать класс hidden
@@ -22,5 +24,7 @@ const imgUploadInput = document.querySelector('#upload-file');
 const openUploadForm = () => {
   imgUploadInput.addEventListener('change', () => {});
 };
+
+isEscapeKey();
 
 export { openUploadForm };
