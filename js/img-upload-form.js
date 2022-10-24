@@ -48,6 +48,8 @@ const onUploadFormSubmit = (evt) => {
   }
 };
 
-uploadForm.addEventListener('submit', onUploadFormSubmit);
+const validateUploadForm = () => {
+  uploadForm.addEventListener('submit', onUploadFormSubmit);
+};
 
-export { onUploadInputChange, onUploadCancelButtonClick };
+export { onUploadInputChange, onUploadCancelButtonClick, validateUploadForm };
