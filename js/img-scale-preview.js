@@ -16,20 +16,20 @@ const setInitialImgScale = (initialScale) => {
 
 setInitialImgScale(INITIAL_IMG_SCALE);
 
-const imgScalePercent = +imgScaleValue.value.slice(0, -1);
-
 const makeImgSmaller = () => {
+  const imgScalePercent = +imgScaleValue.value.slice(0, -1);
   imgScaleValue.value =
     imgScalePercent > MIN_SCALE_IMG
       ? `${imgScalePercent - SCALE_STEP}%`
       : imgScaleValue.value;
 
-  imgPreviewFile.style.transform = 'scale(0.75)';
+  imgPreviewFile.style.transform = `scale(${imgScaleValue.value / 100})`;
 };
 
 imgScaleSmallerButton.addEventListener('click', makeImgSmaller);
 
 const makeImgBigger = () => {
+  const imgScalePercent = +imgScaleValue.value.slice(0, -1);
   imgScaleValue.value =
     imgScalePercent < MAX_SCALE_IMG
       ? `${imgScalePercent + SCALE_STEP}%`
