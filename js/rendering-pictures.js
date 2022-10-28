@@ -1,9 +1,5 @@
 import createPhotoDescriptionsArray from './data.js';
-
-const picturesContainer = document.querySelector('.pictures');
-const templatePicture = document
-  .querySelector('#picture')
-  .content.querySelector('.picture');
+import { picturesContainer, templatePicture } from './dom-elements.js';
 
 const renderPictures = () => {
   const picturesFragment = document.createDocumentFragment();
