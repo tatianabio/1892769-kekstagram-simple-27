@@ -1,3 +1,13 @@
+const EMPTY_VALUE = '';
+
+const clearFieldValue = (field) => {
+  field.value = EMPTY_VALUE;
+};
+
+const clearElementTextContent = (element) => {
+  element.textContent = EMPTY_VALUE;
+};
+
 const checkMaxCommentLength = (checkedString, maxLength) =>
   checkedString.length <= maxLength;
 
@@ -22,6 +32,8 @@ const getRandomNumber = (from, to) => {
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 export {
+  clearElementTextContent,
+  clearFieldValue,
   getRandomNumber,
   checkMaxCommentLength,
   checkMinCommentLength,
