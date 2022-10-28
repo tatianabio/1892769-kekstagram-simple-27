@@ -675,9 +675,8 @@ main {
 
 .text {
   margin: 0;
-  padding: 0;
-  margin-bottom: 30px;
-
+  padding: 0 0 48px 0;
+  position: relative;
   text-align: center;
   border: none;
 }
@@ -710,6 +709,12 @@ main {
   border-radius: 5px;
 }
 
+.text__error {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 /**
   * Кнопка для отправки изображения
