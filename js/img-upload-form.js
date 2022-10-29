@@ -9,6 +9,7 @@ import {
   commentTextArea,
   uploadCancelButton,
 } from './dom-elements.js';
+import { INITIAL_IMG_SCALE, setInitialImgScale } from './img-scale-preview.js';
 
 const removeCommentErrorMessage = () => {
   const text = document.querySelector('.text');
@@ -28,6 +29,7 @@ const onModalEscKeydown = (evt) => {
 function openUploadForm() {
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  setInitialImgScale(INITIAL_IMG_SCALE);
   document.addEventListener('keydown', onModalEscKeydown);
 }
 
