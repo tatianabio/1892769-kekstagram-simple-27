@@ -15,33 +15,30 @@ const setInitialImgScale = (initialScale) => {
   imgPreviewFile.style.transform = `scale(${initialScale / 100})`;
 };
 
-const makeImgSmaller = () => {
-  const imgScalePercent = +imgScaleValue.value.slice(0, -1);
+const changeImgScale = () => {
+  const onImgScaleButtonClick = (step) => {
+    const imgScalePercent = +imgScaleValue.value.slice(0, -1);
 
-  const newImgScale =
-    imgScalePercent > MIN_SCALE_IMG
-      ? imgScalePercent - SCALE_STEP
-      : imgScalePercent;
+    if (
+      (imgScalePercent === MAX_SCALE_IMG && step > 0) ||
+      (imgScalePercent === MIN_SCALE_IMG && step < 0)
+    ) {
+      return;
+    }
 
-  imgScaleValue.value = `${newImgScale}%`;
+    const newImgScale = imgScalePercent + step;
 
-  imgPreviewFile.style.transform = `scale(${newImgScale / 100})`;
+    imgScaleValue.value = `${newImgScale}%`;
+
+    imgPreviewFile.style.transform = `scale(${newImgScale / 100})`;
+  };
+
+  imgScaleBiggerButton.addEventListener('click', () =>
+    onImgScaleButtonClick(SCALE_STEP)
+  );
+  imgScaleSmallerButton.addEventListener('click', () =>
+    onImgScaleButtonClick(-SCALE_STEP)
+  );
 };
 
-const makeImgBigger = () => {
-  const imgScalePercent = +imgScaleValue.value.slice(0, -1);
-
-  const newImgScale =
-    imgScalePercent < MAX_SCALE_IMG
-      ? imgScalePercent + SCALE_STEP
-      : imgScalePercent;
-
-  imgScaleValue.value = `${newImgScale}%`;
-
-  imgPreviewFile.style.transform = `scale(${newImgScale / 100})`;
-};
-
-imgScaleBiggerButton.addEventListener('click', makeImgBigger);
-imgScaleSmallerButton.addEventListener('click', makeImgSmaller);
-
-export { setInitialImgScale, INITIAL_IMG_SCALE };
+export { setInitialImgScale, INITIAL_IMG_SCALE, changeImgScale };
