@@ -12,6 +12,9 @@ const commentTextArea = uploadModal.querySelector('[name="description"]');
 const uploadCancelButton = document.querySelector('#upload-cancel');
 const imgPreview = uploadForm.querySelector('.img-upload__preview');
 const imgPreviewFile = imgPreview.querySelector('img');
+const sliderEffectWrapper = uploadForm.querySelector('.effect-level');
+const sliderEffectIntensity = uploadForm.querySelector('.effect-level__slider');
+const effectIntensityInput = uploadForm.querySelector('.effect-level__value');
 
 //Изменение масштаба превью изображения в форме редактирования
 const imgScale = document.querySelector('.scale');
@@ -34,4 +37,7 @@ export {
   imgScaleSmallerButton,
   imgScaleValue,
   imgPreviewFile,
+  sliderEffectIntensity,
+  effectIntensityInput,
+  sliderEffectWrapper,
 };

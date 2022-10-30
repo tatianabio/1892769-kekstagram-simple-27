@@ -8,9 +8,10 @@ import {
   uploadInput,
   commentTextArea,
   uploadCancelButton,
+  uploadForm,
 } from './dom-elements.js';
 import { INITIAL_IMG_SCALE, setInitialImgScale } from './img-scale-preview.js';
-import { clearImgEffect } from './img-effects.js';
+import { clearImgEffect, createSlider, updateSlider } from './img-effects.js';
 
 const removeCommentErrorMessage = () => {
   const text = document.querySelector('.text');
@@ -32,6 +33,8 @@ function openUploadForm() {
   document.body.classList.add('modal-open');
   setInitialImgScale(INITIAL_IMG_SCALE);
   document.addEventListener('keydown', onModalEscKeydown);
+  createSlider();
+  updateSlider();
 }
 
 function closeUploadForm() {
