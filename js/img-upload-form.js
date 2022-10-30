@@ -10,6 +10,7 @@ import {
   uploadCancelButton,
 } from './dom-elements.js';
 import { INITIAL_IMG_SCALE, setInitialImgScale } from './img-scale-preview.js';
+import { clearImgEffect } from './img-effects.js';
 
 const removeCommentErrorMessage = () => {
   const text = document.querySelector('.text');
@@ -39,6 +40,7 @@ function closeUploadForm() {
   clearFieldValue(uploadInput);
   clearFieldValue(commentTextArea);
   removeCommentErrorMessage();
+  clearImgEffect();
   document.removeEventListener('keydown', onModalEscKeydown);
 }
 
