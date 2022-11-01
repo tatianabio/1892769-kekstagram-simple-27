@@ -1,14 +1,16 @@
 import {
-  clearFieldValue,
   clearElementTextContent,
+  clearFieldValue,
   isEscapeKey,
 } from './util.js';
 import {
-  uploadModal,
-  uploadInput,
   commentTextArea,
   uploadCancelButton,
+  uploadInput,
+  uploadModal,
 } from './dom-elements.js';
+import { INITIAL_IMG_SCALE, setInitialImgScale } from './img-scale-preview.js';
+import { clearImgEffect, createSlider, updateSlider } from './img-effects.js';
 
 const removeCommentErrorMessage = () => {
   const text = document.querySelector('.text');
@@ -28,7 +30,10 @@ const onModalEscKeydown = (evt) => {
 function openUploadForm() {
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  setInitialImgScale(INITIAL_IMG_SCALE);
   document.addEventListener('keydown', onModalEscKeydown);
+  createSlider();
+  updateSlider();
 }
 
 function closeUploadForm() {
@@ -37,6 +42,7 @@ function closeUploadForm() {
   clearFieldValue(uploadInput);
   clearFieldValue(commentTextArea);
   removeCommentErrorMessage();
+  clearImgEffect();
   document.removeEventListener('keydown', onModalEscKeydown);
 }
 
