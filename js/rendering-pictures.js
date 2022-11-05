@@ -1,10 +1,10 @@
-import createPhotoDescriptionsArray from './data.js';
 import { picturesContainer, templatePicture } from './dom-elements.js';
+import { getData } from './api.js';
 
-const renderPictures = () => {
+const renderPictures = async () => {
   const picturesFragment = document.createDocumentFragment();
 
-  const pictures = createPhotoDescriptionsArray();
+  const pictures = await getData();
 
   pictures.forEach(({ url, likes, comments }) => {
     const newPicture = templatePicture.cloneNode(true);
