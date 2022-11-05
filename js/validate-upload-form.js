@@ -1,5 +1,5 @@
 import { checkMaxCommentLength, checkMinCommentLength } from './util.js';
-import { uploadForm, commentTextArea } from './dom-elements.js';
+import { commentTextArea, uploadForm } from './dom-elements.js';
 
 const COMMENT_MIN_LENGTH = 20;
 const COMMENT_MAX_LENGTH = 140;
@@ -26,21 +26,23 @@ pristine.addValidator(
   `Введите от ${COMMENT_MIN_LENGTH} до ${COMMENT_MAX_LENGTH} символов`
 );
 
-const onUploadFormSubmit = (evt) => {
-  evt.preventDefault();
+const setUploadFormSubmit = (onSuccess) => {
+  uploadForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
 
-  const isValid = pristine.validate();
-  if (isValid) {
-    // eslint-disable-next-line no-console
-    console.log('Форма валидна!');
-  } else {
-    // eslint-disable-next-line no-console
-    console.error('Форма не валидна!');
-  }
+    const isValid = pristine.validate();
+    if (isValid) {
+      const formData = new FormData(evt.target);
+
+      fetch('https://27.javascript.pages.academy/kekstagram-simple', {
+        method: 'POST',
+        body: formData,
+      }).then(() => onSuccess());
+    } else {
+      // eslint-disable-next-line no-console
+      console.error('Форма не валидна!');
+    }
+  });
 };
 
-const validateUploadForm = () => {
-  uploadForm.addEventListener('submit', onUploadFormSubmit);
-};
-
-export { validateUploadForm };
+export { setUploadFormSubmit };

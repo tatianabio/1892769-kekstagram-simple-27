@@ -14,11 +14,33 @@ const getData = async () => {
     if (!response.ok) {
       throw new Error(`${response.status}`);
     }
-  } catch (err) {
-    showAlert(appErrors[err.message] || 'Непредвиденная ошибка.');
+  } catch ({ message }) {
+    showAlert(appErrors[message] || 'Непредвиденная ошибка.');
   }
 
   return await response.json();
 };
 
-export { getData };
+const sendData = async (body) => {
+  let response;
+
+  try {
+    response = await fetch(
+      'https://27.javascript.pages.academy/kekstagram-simple',
+      {
+        method: 'POST',
+        body: body,
+      }
+    ).catch(() => {
+      throw new Error('500');
+    });
+
+    if (!response.ok) {
+      throw new Error(`${response.status}`);
+    }
+  } catch (err) {
+    showAlert(appErrors[err.message] || 'Непредвиденная ошибка.');
+  }
+};
+
+export { getData, sendData };
