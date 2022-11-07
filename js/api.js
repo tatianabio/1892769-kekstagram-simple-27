@@ -26,7 +26,7 @@ const sendData = async (body) => {
 
   try {
     response = await fetch(
-      'https://27.javascript.pages.academy/kekstagram-simple1',
+      'https://27.javascript.pages.academy/kekstagram-simple',
       {
         method: 'POST',
         body: body,
