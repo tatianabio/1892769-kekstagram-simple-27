@@ -2,6 +2,11 @@ import { checkMaxCommentLength, checkMinCommentLength } from './util.js';
 import {
   body,
   commentTextArea,
+  errorModal,
+  errorModalCloseButton,
+  successModal,
+  successModalCloseButton,
+  templateErrorModal,
   templateSuccessModal,
   uploadForm,
 } from './dom-elements.js';
@@ -33,6 +38,14 @@ pristine.addValidator(
   `Введите от ${COMMENT_MIN_LENGTH} до ${COMMENT_MAX_LENGTH} символов`
 );
 
+const showMessageModal = (template, closeButton, modal) => {
+  const messageModal = template.cloneNode(true);
+  body.append(messageModal);
+  closeButton().addEventListener('click', () => {
+    body.removeChild(modal());
+  });
+};
+
 const setUploadFormSubmit = () => {
   const submit = async (evt) => {
     evt.preventDefault();
@@ -43,13 +56,15 @@ const setUploadFormSubmit = () => {
       const isSuccessful = await sendData(formData);
 
       if (isSuccessful) {
-        await closeUploadForm();
-        const successModal = await templateSuccessModal.cloneNode(true);
-        await body.append(successModal);
+        closeUploadForm();
+        showMessageModal(
+          templateSuccessModal,
+          successModalCloseButton,
+          successModal
+        );
+      } else {
+        showMessageModal(templateErrorModal, errorModalCloseButton, errorModal);
       }
-    } else {
-      // eslint-disable-next-line no-console
-      console.error('Форма не валидна!');
     }
   };
 

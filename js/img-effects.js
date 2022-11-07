@@ -24,14 +24,13 @@ const hideSliderEffect = () => {
 };
 
 const effectsList = document.querySelector('.effects');
-////////////////////////////////////////////////////////////////////////////////////
+
 const clearImgEffect = () =>
   imgPreviewFile.classList.forEach(
     (item) =>
       item.includes('effects__preview--') &&
       imgPreviewFile.classList.remove(item)
   );
-////////////////////////////////////////////////////////////////////////////////////
 
 const updateSlider = (effect) => {
   if (!filterEffects[effect]) {
@@ -49,7 +48,7 @@ const updateSlider = (effect) => {
     step,
   });
 };
-////////////////////////////////////////////////////////////////////////////////////
+
 const clearImgFilter = () => {
   imgPreviewFile.style.filter = 'inherit';
   hideSliderEffect();
@@ -81,7 +80,7 @@ const changeImgEffect = () => {
 
   effectsList.addEventListener('change', onEffectsListChange);
 };
-////////////////////////////////////////////////////////////////////////////////////
+
 const createSlider = () => {
   noUiSlider.create(sliderEffectIntensity, {
     range: {
@@ -94,7 +93,6 @@ const createSlider = () => {
   });
   hideSliderEffect();
 };
-////////////////////////////////////////////////////////////////////////////////////
 
 export {
   changeImgEffect,

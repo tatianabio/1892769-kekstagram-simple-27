@@ -18,7 +18,6 @@ const sliderEffectWrapper = uploadForm.querySelector('.effect-level');
 const sliderEffectIntensity = uploadForm.querySelector('.effect-level__slider');
 const effectIntensityInput = uploadForm.querySelector('.effect-level__value');
 const noImgEffectInput = uploadForm.querySelector('#effect-none');
-const imgEffectInputs = uploadForm.querySelectorAll('.effects__radio');
 
 //Изменение масштаба превью изображения в форме редактирования
 const imgScale = document.querySelector('.scale');
@@ -32,6 +31,14 @@ const imgScaleValue = imgScale.querySelector('.scale__control--value');
 const templateSuccessModal = document
   .querySelector('#success')
   .content.querySelector('.success');
+const successModalCloseButton = () =>
+  document.querySelector('.success__button');
+const successModal = () => document.querySelector('.success');
+const templateErrorModal = document
+  .querySelector('#error')
+  .content.querySelector('.error');
+const errorModalCloseButton = () => document.querySelector('.error__button');
+const errorModal = () => document.querySelector('.error');
 
 export {
   body,
@@ -52,5 +59,9 @@ export {
   sliderEffectWrapper,
   templateSuccessModal,
   noImgEffectInput,
-  imgEffectInputs,
+  successModalCloseButton,
+  successModal,
+  templateErrorModal,
+  errorModalCloseButton,
+  errorModal,
 };
