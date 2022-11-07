@@ -5,12 +5,13 @@ import {
 } from './util.js';
 import {
   commentTextArea,
+  noImgEffectInput,
   uploadCancelButton,
   uploadInput,
   uploadModal,
 } from './dom-elements.js';
 import { INITIAL_IMG_SCALE, setInitialImgScale } from './img-scale-preview.js';
-import { clearImgEffect, createSlider, updateSlider } from './img-effects.js';
+import { clearImgEffect, clearImgFilter, updateSlider } from './img-effects.js';
 
 const removeCommentErrorMessage = () => {
   const text = document.querySelector('.text');
@@ -18,6 +19,16 @@ const removeCommentErrorMessage = () => {
   if (textError) {
     clearElementTextContent(textError);
   }
+};
+
+const clearUploadForm = () => {
+  clearImgEffect();
+  removeCommentErrorMessage();
+  clearImgFilter();
+  setInitialImgScale(INITIAL_IMG_SCALE);
+  clearFieldValue(uploadInput);
+  clearFieldValue(commentTextArea);
+  noImgEffectInput.checked = true;
 };
 
 const onModalEscKeydown = (evt) => {
@@ -30,19 +41,15 @@ const onModalEscKeydown = (evt) => {
 function openUploadForm() {
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
-  setInitialImgScale(INITIAL_IMG_SCALE);
   document.addEventListener('keydown', onModalEscKeydown);
-  createSlider();
+  setInitialImgScale(INITIAL_IMG_SCALE);
   updateSlider();
 }
 
 function closeUploadForm() {
+  clearUploadForm();
   uploadModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
-  clearFieldValue(uploadInput);
-  clearFieldValue(commentTextArea);
-  removeCommentErrorMessage();
-  clearImgEffect();
   document.removeEventListener('keydown', onModalEscKeydown);
 }
 
@@ -54,4 +61,9 @@ const onUploadCancelButtonClick = () => {
   uploadCancelButton.addEventListener('click', closeUploadForm);
 };
 
-export { onUploadInputChange, onUploadCancelButtonClick };
+export {
+  onUploadInputChange,
+  onUploadCancelButtonClick,
+  closeUploadForm,
+  clearUploadForm,
+};

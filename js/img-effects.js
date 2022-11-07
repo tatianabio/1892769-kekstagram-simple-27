@@ -1,7 +1,7 @@
 import {
+  effectIntensityInput,
   imgPreviewFile,
   sliderEffectIntensity,
-  effectIntensityInput,
   sliderEffectWrapper,
 } from './dom-elements.js';
 
@@ -50,6 +50,11 @@ const updateSlider = (effect) => {
   });
 };
 ////////////////////////////////////////////////////////////////////////////////////
+const clearImgFilter = () => {
+  imgPreviewFile.style.filter = 'inherit';
+  hideSliderEffect();
+};
+
 const changeImgEffect = () => {
   const onEffectsListChange = () => {
     const { value: effect } = effectsList.querySelector(
@@ -70,8 +75,7 @@ const changeImgEffect = () => {
         imgPreviewFile.style.filter = `${filter}(${effectIntensityInput.value}${units})`;
       });
     } else {
-      imgPreviewFile.style.filter = 'inherit';
-      hideSliderEffect();
+      clearImgFilter();
     }
   };
 
@@ -92,4 +96,10 @@ const createSlider = () => {
 };
 ////////////////////////////////////////////////////////////////////////////////////
 
-export { changeImgEffect, clearImgEffect, createSlider, updateSlider };
+export {
+  changeImgEffect,
+  clearImgEffect,
+  clearImgFilter,
+  createSlider,
+  updateSlider,
+};

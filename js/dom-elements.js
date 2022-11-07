@@ -1,3 +1,5 @@
+const body = document.querySelector('body');
+
 //Галерея изображений
 const picturesContainer = document.querySelector('.pictures');
 const templatePicture = document
@@ -15,6 +17,8 @@ const imgPreviewFile = imgPreview.querySelector('img');
 const sliderEffectWrapper = uploadForm.querySelector('.effect-level');
 const sliderEffectIntensity = uploadForm.querySelector('.effect-level__slider');
 const effectIntensityInput = uploadForm.querySelector('.effect-level__value');
+const noImgEffectInput = uploadForm.querySelector('#effect-none');
+const imgEffectInputs = uploadForm.querySelectorAll('.effects__radio');
 
 //Изменение масштаба превью изображения в форме редактирования
 const imgScale = document.querySelector('.scale');
@@ -24,7 +28,13 @@ const imgScaleSmallerButton = imgScale.querySelector(
 );
 const imgScaleValue = imgScale.querySelector('.scale__control--value');
 
+//Модальные окна об ошибке и успехе в отправке фотографии
+const templateSuccessModal = document
+  .querySelector('#success')
+  .content.querySelector('.success');
+
 export {
+  body,
   picturesContainer,
   templatePicture,
   uploadModal,
@@ -40,4 +50,7 @@ export {
   sliderEffectIntensity,
   effectIntensityInput,
   sliderEffectWrapper,
+  templateSuccessModal,
+  noImgEffectInput,
+  imgEffectInputs,
 };

@@ -40,7 +40,9 @@ const sendData = async (body) => {
     }
   } catch (err) {
     showAlert(appErrors[err.message] || 'Непредвиденная ошибка.');
+    return false;
   }
+  return true;
 };
 
 export { getData, sendData };
