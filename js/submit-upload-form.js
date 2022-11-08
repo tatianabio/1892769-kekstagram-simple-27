@@ -57,11 +57,12 @@ const unBlockSubmitButton = () => {
   uploadSubmitButton.textContent = 'Опубликовать';
 };
 
-const setUploadFormSubmit = () => {
-  const submit = async (evt) => {
+export const setUploadFormSubmit = () => {
+  const onSubmitButtonClick = async (evt) => {
     evt.preventDefault();
 
     const isValid = pristine.validate();
+
     if (isValid) {
       blockSubmitButton();
       const formData = new FormData(evt.target);
@@ -74,14 +75,12 @@ const setUploadFormSubmit = () => {
           successModalCloseButton,
           successModal
         );
-        unBlockSubmitButton();
       } else {
         showMessageModal(templateErrorModal, errorModalCloseButton, errorModal);
       }
+      unBlockSubmitButton();
     }
   };
 
-  uploadForm.addEventListener('submit', submit);
+  uploadForm.addEventListener('submit', onSubmitButtonClick);
 };
-
-export { setUploadFormSubmit };
