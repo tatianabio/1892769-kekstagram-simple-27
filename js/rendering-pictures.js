@@ -1,7 +1,7 @@
 import { picturesContainer, templatePicture } from './dom-elements.js';
 import { getData } from './api.js';
 
-const renderPictures = async () => {
+export const renderPictures = async () => {
   const picturesFragment = document.createDocumentFragment();
 
   const pictures = await getData();
@@ -16,5 +16,3 @@ const renderPictures = async () => {
 
   picturesContainer.append(picturesFragment);
 };
-
-export { renderPictures };

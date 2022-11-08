@@ -1,44 +1,32 @@
-import {
-  imgScaleBiggerButton,
-  imgScaleSmallerButton,
-  imgScaleValue,
-  imgPreviewFile,
-} from './dom-elements.js';
+import { imgPreviewFile, imgScaleValue } from './dom-elements.js';
 
-const INITIAL_IMG_SCALE = 100;
-const SCALE_STEP = 25;
+export const INITIAL_IMG_SCALE = 100;
+export const SCALE_STEP = 25;
 const MIN_SCALE_IMG = 25;
 const MAX_SCALE_IMG = 100;
 
-const setInitialImgScale = (initialScale) => {
+export const setInitialImgScale = (initialScale) => {
   imgScaleValue.value = `${initialScale}%`;
   imgPreviewFile.style.transform = `scale(${initialScale / 100})`;
 };
 
-const changeImgScale = () => {
-  const onImgScaleButtonClick = (step) => {
-    const imgScalePercent = +imgScaleValue.value.slice(0, -1);
+export const onImgScaleButtonClick = (step) => {
+  const imgScalePercent = +imgScaleValue.value.slice(0, -1);
 
-    if (
-      (imgScalePercent === MAX_SCALE_IMG && step > 0) ||
-      (imgScalePercent === MIN_SCALE_IMG && step < 0)
-    ) {
-      return;
-    }
+  if (
+    (imgScalePercent === MAX_SCALE_IMG && step > 0) ||
+    (imgScalePercent === MIN_SCALE_IMG && step < 0)
+  ) {
+    return;
+  }
 
-    const newImgScale = imgScalePercent + step;
+  const newImgScale = imgScalePercent + step;
 
-    imgScaleValue.value = `${newImgScale}%`;
+  imgScaleValue.value = `${newImgScale}%`;
 
-    imgPreviewFile.style.transform = `scale(${newImgScale / 100})`;
-  };
-
-  imgScaleBiggerButton.addEventListener('click', () =>
-    onImgScaleButtonClick(SCALE_STEP)
-  );
-  imgScaleSmallerButton.addEventListener('click', () =>
-    onImgScaleButtonClick(-SCALE_STEP)
-  );
+  imgPreviewFile.style.transform = `scale(${newImgScale / 100})`;
 };
 
-export { setInitialImgScale, INITIAL_IMG_SCALE, changeImgScale };
+export const onBiggerScaleButtonClick = () => onImgScaleButtonClick(SCALE_STEP);
+export const onSmallerScaleButtonClick = () =>
+  onImgScaleButtonClick(-SCALE_STEP);

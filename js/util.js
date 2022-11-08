@@ -1,23 +1,23 @@
 const EMPTY_VALUE = '';
 const ALERT_SHOW_TIME = 5000;
 
-const clearFieldValue = (field) => {
+export const clearFieldValue = (field) => {
   field.value = EMPTY_VALUE;
 };
 
-const clearElementTextContent = (element) => {
+export const clearElementTextContent = (element) => {
   element.textContent = EMPTY_VALUE;
 };
 
-const checkMaxCommentLength = (checkedString, maxLength) =>
+export const checkMaxCommentLength = (checkedString, maxLength) =>
   checkedString.length <= maxLength;
 
-const checkMinCommentLength = (checkedString, minLength) =>
+export const checkMinCommentLength = (checkedString, minLength) =>
   checkedString.length >= minLength;
 
-const isEscapeKey = (evt) => evt.key === 'Escape';
+export const isEscapeKey = (evt) => evt.key === 'Escape';
 
-const showAlert = (message) => {
+export const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.style.zIndex = '100';
   alertContainer.style.position = 'absolute';
@@ -33,16 +33,5 @@ const showAlert = (message) => {
 
   document.body.append(alertContainer);
 
-  setTimeout(() => {
-    alertContainer.remove();
-  }, ALERT_SHOW_TIME);
-};
-
-export {
-  clearElementTextContent,
-  clearFieldValue,
-  checkMaxCommentLength,
-  checkMinCommentLength,
-  isEscapeKey,
-  showAlert,
+  setTimeout(() => alertContainer.remove(), ALERT_SHOW_TIME);
 };

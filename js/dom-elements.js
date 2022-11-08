@@ -25,6 +25,7 @@ export const effectIntensityInput = uploadForm.querySelector(
 );
 export const noImgEffectInput = uploadForm.querySelector('#effect-none');
 export const uploadSubmitButton = document.querySelector('#upload-submit');
+export const effectsList = document.querySelector('.effects');
 
 //Изменение масштаба превью изображения в форме редактирования
 export const imgScale = document.querySelector('.scale');

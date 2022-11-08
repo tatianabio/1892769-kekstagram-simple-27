@@ -5,16 +5,29 @@ import {
 } from './util.js';
 import {
   commentTextArea,
+  effectsList,
   errorModal,
   imgPreviewFile,
+  imgScaleBiggerButton,
+  imgScaleSmallerButton,
   noImgEffectInput,
   uploadCancelButton,
   uploadForm,
   uploadInput,
   uploadModal,
 } from './dom-elements.js';
-import { INITIAL_IMG_SCALE, setInitialImgScale } from './img-scale-preview.js';
-import { clearImgEffect, clearImgFilter, updateSlider } from './img-effects.js';
+import {
+  INITIAL_IMG_SCALE,
+  onBiggerScaleButtonClick,
+  onSmallerScaleButtonClick,
+  setInitialImgScale,
+} from './img-scale-preview.js';
+import {
+  clearImgEffect,
+  clearImgFilter,
+  onEffectsListChange,
+  updateSlider,
+} from './img-effects.js';
 import { onSubmitButtonClick } from './submit-upload-form.js';
 
 const removeCommentErrorMessage = () => {
@@ -25,7 +38,7 @@ const removeCommentErrorMessage = () => {
   }
 };
 
-const clearUploadForm = () => {
+export const clearUploadForm = () => {
   clearImgEffect();
   removeCommentErrorMessage();
   clearImgFilter();
@@ -49,21 +62,24 @@ function openUploadForm(event) {
   uploadForm.addEventListener('submit', onSubmitButtonClick);
   document.addEventListener('keydown', onModalEscKeydown);
   uploadCancelButton.addEventListener('click', closeUploadForm);
+  imgScaleBiggerButton.addEventListener('click', onBiggerScaleButtonClick);
+  imgScaleSmallerButton.addEventListener('click', onSmallerScaleButtonClick);
+  effectsList.addEventListener('change', onEffectsListChange);
   setInitialImgScale(INITIAL_IMG_SCALE);
   updateSlider();
 }
 
-function closeUploadForm() {
+export function closeUploadForm() {
   clearUploadForm();
   uploadModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
   uploadForm.removeEventListener('submit', onSubmitButtonClick);
   document.removeEventListener('keydown', onModalEscKeydown);
   uploadCancelButton.removeEventListener('click', closeUploadForm);
+  imgScaleBiggerButton.removeEventListener('click', onBiggerScaleButtonClick);
+  imgScaleSmallerButton.removeEventListener('click', onSmallerScaleButtonClick);
+  effectsList.removeEventListener('change', onEffectsListChange);
 }
 
-const onUploadInputChange = () => {
+export const onUploadInputChange = () =>
   uploadInput.addEventListener('change', openUploadForm);
-};
-
-export { onUploadInputChange, closeUploadForm, clearUploadForm };

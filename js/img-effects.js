@@ -1,5 +1,6 @@
 import {
   effectIntensityInput,
+  effectsList,
   imgPreviewFile,
   sliderEffectIntensity,
   sliderEffectWrapper,
@@ -23,16 +24,14 @@ const hideSliderEffect = () => {
   sliderEffectWrapper.setAttribute('aria-hidden', 'true');
 };
 
-const effectsList = document.querySelector('.effects');
-
-const clearImgEffect = () =>
+export const clearImgEffect = () =>
   imgPreviewFile.classList.forEach(
     (item) =>
       item.includes('effects__preview--') &&
       imgPreviewFile.classList.remove(item)
   );
 
-const updateSlider = (effect) => {
+export const updateSlider = (effect) => {
   if (!filterEffects[effect]) {
     return;
   }
@@ -49,39 +48,35 @@ const updateSlider = (effect) => {
   });
 };
 
-const clearImgFilter = () => {
+export const clearImgFilter = () => {
   imgPreviewFile.style.filter = 'inherit';
   hideSliderEffect();
 };
 
-const changeImgEffect = () => {
-  const onEffectsListChange = () => {
-    const { value: effect } = effectsList.querySelector(
-      'input[type=radio]:checked'
-    );
+export const onEffectsListChange = () => {
+  const { value: effect } = effectsList.querySelector(
+    'input[type=radio]:checked'
+  );
 
-    sliderEffectIntensity.noUiSlider.off('update');
-    clearImgEffect();
+  sliderEffectIntensity.noUiSlider.off('update');
+  clearImgEffect();
 
-    if (effect !== 'none') {
-      imgPreviewFile.classList.add(`effects__preview--${effect}`);
-      showSliderEffect();
-      updateSlider(effect);
+  if (effect !== 'none') {
+    imgPreviewFile.classList.add(`effects__preview--${effect}`);
+    showSliderEffect();
+    updateSlider(effect);
 
-      sliderEffectIntensity.noUiSlider.on('update', () => {
-        effectIntensityInput.value = sliderEffectIntensity.noUiSlider.get();
-        const { filter, units } = filterEffects[effect];
-        imgPreviewFile.style.filter = `${filter}(${effectIntensityInput.value}${units})`;
-      });
-    } else {
-      clearImgFilter();
-    }
-  };
-
-  effectsList.addEventListener('change', onEffectsListChange);
+    sliderEffectIntensity.noUiSlider.on('update', () => {
+      effectIntensityInput.value = sliderEffectIntensity.noUiSlider.get();
+      const { filter, units } = filterEffects[effect];
+      imgPreviewFile.style.filter = `${filter}(${effectIntensityInput.value}${units})`;
+    });
+  } else {
+    clearImgFilter();
+  }
 };
 
-const createSlider = () => {
+export const createSlider = () => {
   noUiSlider.create(sliderEffectIntensity, {
     range: {
       min: 0,
@@ -92,12 +87,4 @@ const createSlider = () => {
     connect: 'lower',
   });
   hideSliderEffect();
-};
-
-export {
-  changeImgEffect,
-  clearImgEffect,
-  clearImgFilter,
-  createSlider,
-  updateSlider,
 };
