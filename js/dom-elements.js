@@ -16,6 +16,7 @@ export const commentTextArea = uploadModal.querySelector(
 export const uploadCancelButton = document.querySelector('#upload-cancel');
 export const imgPreview = uploadForm.querySelector('.img-upload__preview');
 export const imgPreviewFile = imgPreview.querySelector('img');
+export const imgMiniPreviews = uploadForm.querySelectorAll('.effects__preview');
 export const sliderEffectWrapper = uploadForm.querySelector('.effect-level');
 export const sliderEffectIntensity = uploadForm.querySelector(
   '.effect-level__slider'

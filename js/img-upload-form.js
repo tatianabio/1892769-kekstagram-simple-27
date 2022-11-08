@@ -7,6 +7,7 @@ import {
   commentTextArea,
   effectsList,
   errorModal,
+  imgMiniPreviews,
   imgPreviewFile,
   imgScaleBiggerButton,
   imgScaleSmallerButton,
@@ -57,6 +58,12 @@ const onModalEscKeydown = (evt) => {
 
 function openUploadForm(event) {
   imgPreviewFile.src = URL.createObjectURL(event.target.files[0]);
+  imgMiniPreviews.forEach((item) => {
+    item.style.backgroundImage = `url(${URL.createObjectURL(
+      event.target.files[0]
+    )})`;
+    item.style.backgroundSize = 'cover';
+  });
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
   uploadForm.addEventListener('submit', onSubmitButtonClick);
