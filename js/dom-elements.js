@@ -18,6 +18,7 @@ const sliderEffectWrapper = uploadForm.querySelector('.effect-level');
 const sliderEffectIntensity = uploadForm.querySelector('.effect-level__slider');
 const effectIntensityInput = uploadForm.querySelector('.effect-level__value');
 const noImgEffectInput = uploadForm.querySelector('#effect-none');
+const uploadSubmitButton = document.querySelector('#upload-submit');
 
 //Изменение масштаба превью изображения в форме редактирования
 const imgScale = document.querySelector('.scale');
@@ -64,4 +65,5 @@ export {
   templateErrorModal,
   errorModalCloseButton,
   errorModal,
+  uploadSubmitButton,
 };

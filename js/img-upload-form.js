@@ -5,6 +5,7 @@ import {
 } from './util.js';
 import {
   commentTextArea,
+  imgPreviewFile,
   noImgEffectInput,
   uploadCancelButton,
   uploadInput,
@@ -38,7 +39,8 @@ const onModalEscKeydown = (evt) => {
   }
 };
 
-function openUploadForm() {
+function openUploadForm(event) {
+  imgPreviewFile.src = URL.createObjectURL(event.target.files[0]);
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onModalEscKeydown);

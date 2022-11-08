@@ -9,6 +9,7 @@ import {
   templateErrorModal,
   templateSuccessModal,
   uploadForm,
+  uploadSubmitButton,
 } from './dom-elements.js';
 import { sendData } from './api.js';
 import { closeUploadForm } from './img-upload-form.js';
@@ -46,12 +47,23 @@ const showMessageModal = (template, closeButton, modal) => {
   });
 };
 
+const blockSubmitButton = () => {
+  uploadSubmitButton.disabled = true;
+  uploadSubmitButton.textContent = 'Публикация...';
+};
+
+const unBlockSubmitButton = () => {
+  uploadSubmitButton.disabled = false;
+  uploadSubmitButton.textContent = 'Опубликовать';
+};
+
 const setUploadFormSubmit = () => {
   const submit = async (evt) => {
     evt.preventDefault();
 
     const isValid = pristine.validate();
     if (isValid) {
+      blockSubmitButton();
       const formData = new FormData(evt.target);
       const isSuccessful = await sendData(formData);
 
@@ -62,6 +74,7 @@ const setUploadFormSubmit = () => {
           successModalCloseButton,
           successModal
         );
+        unBlockSubmitButton();
       } else {
         showMessageModal(templateErrorModal, errorModalCloseButton, errorModal);
       }
