@@ -1,4 +1,8 @@
-import { checkMaxCommentLength, checkMinCommentLength } from './util.js';
+import {
+  checkMaxCommentLength,
+  checkMinCommentLength,
+  isEscapeKey,
+} from './util.js';
 import {
   body,
   commentTextArea,
@@ -42,19 +46,35 @@ pristine.addValidator(
 const showMessageModal = (template, closeButton, modal) => {
   const messageModal = template.cloneNode(true);
   body.append(messageModal);
-  closeButton().addEventListener('click', () => {
+
+  const onMessageModalEscKeydown = (evt) => {
+    if (isEscapeKey(evt)) {
+      evt.preventDefault();
+      closeMessageModal();
+    }
+  };
+
+  const onOutsideMessageModalClick = (evt) => {
+    if (!modal().querySelector('.inner').contains(evt.target)) {
+      closeMessageModal();
+    }
+  };
+
+  function closeMessageModal() {
+    closeButton().removeEventListener('click', closeMessageModal);
+    document.removeEventListener('keydown', onMessageModalEscKeydown);
+    document.removeEventListener('click', onOutsideMessageModalClick);
     body.removeChild(modal());
-  });
+  }
+
+  closeButton().addEventListener('click', closeMessageModal);
+  document.addEventListener('keydown', onMessageModalEscKeydown);
+  document.addEventListener('click', onOutsideMessageModalClick);
 };
 
-const blockSubmitButton = () => {
-  uploadSubmitButton.disabled = true;
-  uploadSubmitButton.textContent = 'Публикация...';
-};
-
-const unBlockSubmitButton = () => {
-  uploadSubmitButton.disabled = false;
-  uploadSubmitButton.textContent = 'Опубликовать';
+const blockSubmitButton = (isBlocked = false) => {
+  uploadSubmitButton.disabled = isBlocked;
+  uploadSubmitButton.textContent = isBlocked ? 'Публикация...' : 'Опубликовать';
 };
 
 export const setUploadFormSubmit = () => {
@@ -64,7 +84,7 @@ export const setUploadFormSubmit = () => {
     const isValid = pristine.validate();
 
     if (isValid) {
-      blockSubmitButton();
+      blockSubmitButton(true);
       const formData = new FormData(evt.target);
       const isSuccessful = await sendData(formData);
 
@@ -78,7 +98,7 @@ export const setUploadFormSubmit = () => {
       } else {
         showMessageModal(templateErrorModal, errorModalCloseButton, errorModal);
       }
-      unBlockSubmitButton();
+      blockSubmitButton(false);
     }
   };
 

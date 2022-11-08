@@ -5,6 +5,7 @@ import {
 } from './util.js';
 import {
   commentTextArea,
+  errorModal,
   imgPreviewFile,
   noImgEffectInput,
   uploadCancelButton,
@@ -33,7 +34,7 @@ const clearUploadForm = () => {
 };
 
 const onModalEscKeydown = (evt) => {
-  if (isEscapeKey(evt)) {
+  if (isEscapeKey(evt) && !errorModal()) {
     evt.preventDefault();
     closeUploadForm();
   }
