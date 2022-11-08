@@ -9,11 +9,13 @@ import {
   imgPreviewFile,
   noImgEffectInput,
   uploadCancelButton,
+  uploadForm,
   uploadInput,
   uploadModal,
 } from './dom-elements.js';
 import { INITIAL_IMG_SCALE, setInitialImgScale } from './img-scale-preview.js';
 import { clearImgEffect, clearImgFilter, updateSlider } from './img-effects.js';
+import { onSubmitButtonClick } from './submit-upload-form.js';
 
 const removeCommentErrorMessage = () => {
   const text = document.querySelector('.text');
@@ -44,7 +46,9 @@ function openUploadForm(event) {
   imgPreviewFile.src = URL.createObjectURL(event.target.files[0]);
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  uploadForm.addEventListener('submit', onSubmitButtonClick);
   document.addEventListener('keydown', onModalEscKeydown);
+  uploadCancelButton.addEventListener('click', closeUploadForm);
   setInitialImgScale(INITIAL_IMG_SCALE);
   updateSlider();
 }
@@ -53,20 +57,13 @@ function closeUploadForm() {
   clearUploadForm();
   uploadModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  uploadForm.removeEventListener('submit', onSubmitButtonClick);
   document.removeEventListener('keydown', onModalEscKeydown);
+  uploadCancelButton.removeEventListener('click', closeUploadForm);
 }
 
 const onUploadInputChange = () => {
   uploadInput.addEventListener('change', openUploadForm);
 };
 
-const onUploadCancelButtonClick = () => {
-  uploadCancelButton.addEventListener('click', closeUploadForm);
-};
-
-export {
-  onUploadInputChange,
-  onUploadCancelButtonClick,
-  closeUploadForm,
-  clearUploadForm,
-};
+export { onUploadInputChange, closeUploadForm, clearUploadForm };

@@ -77,30 +77,26 @@ const blockSubmitButton = (isBlocked = false) => {
   uploadSubmitButton.textContent = isBlocked ? 'Публикация...' : 'Опубликовать';
 };
 
-export const setUploadFormSubmit = () => {
-  const onSubmitButtonClick = async (evt) => {
-    evt.preventDefault();
+export const onSubmitButtonClick = async (evt) => {
+  evt.preventDefault();
 
-    const isValid = pristine.validate();
+  const isValid = pristine.validate();
 
-    if (isValid) {
-      blockSubmitButton(true);
-      const formData = new FormData(evt.target);
-      const isSuccessful = await sendData(formData);
+  if (isValid) {
+    blockSubmitButton(true);
+    const formData = new FormData(evt.target);
+    const isSuccessful = await sendData(formData);
 
-      if (isSuccessful) {
-        closeUploadForm();
-        showMessageModal(
-          templateSuccessModal,
-          successModalCloseButton,
-          successModal
-        );
-      } else {
-        showMessageModal(templateErrorModal, errorModalCloseButton, errorModal);
-      }
-      blockSubmitButton(false);
+    if (isSuccessful) {
+      closeUploadForm();
+      showMessageModal(
+        templateSuccessModal,
+        successModalCloseButton,
+        successModal
+      );
+    } else {
+      showMessageModal(templateErrorModal, errorModalCloseButton, errorModal);
     }
-  };
-
-  uploadForm.addEventListener('submit', onSubmitButtonClick);
+    blockSubmitButton(false);
+  }
 };
