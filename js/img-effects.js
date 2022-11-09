@@ -88,3 +88,5 @@ export const createSlider = () => {
   });
   hideSliderEffect();
 };
+
+export const destroySlider = () => sliderEffectIntensity.noUiSlider.destroy();

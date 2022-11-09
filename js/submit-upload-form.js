@@ -15,7 +15,7 @@ import {
   uploadForm,
   uploadSubmitButton,
 } from './dom-elements.js';
-import { sendData } from './api.js';
+import { sendFormData } from './api.js';
 import { closeUploadForm } from './img-upload-form.js';
 
 const COMMENT_MIN_LENGTH = 20;
@@ -85,7 +85,7 @@ export const onSubmitButtonClick = async (evt) => {
   if (isValid) {
     blockSubmitButton(true);
     const formData = new FormData(evt.target);
-    const isSuccessful = await sendData(formData);
+    const isSuccessful = await sendFormData(formData);
 
     if (isSuccessful) {
       closeUploadForm();

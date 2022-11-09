@@ -26,8 +26,9 @@ import {
 import {
   clearImgEffect,
   clearImgFilter,
+  createSlider,
+  destroySlider,
   onEffectsListChange,
-  updateSlider,
 } from './img-effects.js';
 import { onSubmitButtonClick } from './submit-upload-form.js';
 
@@ -73,7 +74,7 @@ function openUploadForm(event) {
   imgScaleSmallerButton.addEventListener('click', onSmallerScaleButtonClick);
   effectsList.addEventListener('change', onEffectsListChange);
   setInitialImgScale(INITIAL_IMG_SCALE);
-  updateSlider();
+  createSlider();
 }
 
 export function closeUploadForm() {
@@ -86,6 +87,7 @@ export function closeUploadForm() {
   imgScaleBiggerButton.removeEventListener('click', onBiggerScaleButtonClick);
   imgScaleSmallerButton.removeEventListener('click', onSmallerScaleButtonClick);
   effectsList.removeEventListener('change', onEffectsListChange);
+  destroySlider();
 }
 
 export const onUploadInputChange = () =>

@@ -1,7 +1,7 @@
 import { showAlert } from './util.js';
 import { appErrors } from './errors.js';
 
-export const getData = async () => {
+export const getImgData = async () => {
   let response;
 
   try {
@@ -21,7 +21,7 @@ export const getData = async () => {
   return await response.json();
 };
 
-export const sendData = async (body) => {
+export const sendFormData = async (body) => {
   let response;
 
   try {
