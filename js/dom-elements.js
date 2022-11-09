@@ -1,43 +1,58 @@
+export const body = document.querySelector('body');
+
 //Галерея изображений
-const picturesContainer = document.querySelector('.pictures');
-const templatePicture = document
+export const picturesContainer = document.querySelector('.pictures');
+export const templatePicture = document
   .querySelector('#picture')
   .content.querySelector('.picture');
 
 //Форма редактирования фотографии
-const uploadModal = document.querySelector('.img-upload__overlay');
-const uploadForm = document.querySelector('.img-upload__form');
-const uploadInput = document.querySelector('#upload-file');
-const commentTextArea = uploadModal.querySelector('[name="description"]');
-const uploadCancelButton = document.querySelector('#upload-cancel');
-const imgPreview = uploadForm.querySelector('.img-upload__preview');
-const imgPreviewFile = imgPreview.querySelector('img');
-const sliderEffectWrapper = uploadForm.querySelector('.effect-level');
-const sliderEffectIntensity = uploadForm.querySelector('.effect-level__slider');
-const effectIntensityInput = uploadForm.querySelector('.effect-level__value');
+export const uploadModal = document.querySelector('.img-upload__overlay');
+export const uploadForm = document.querySelector('.img-upload__form');
+export const uploadInput = document.querySelector('#upload-file');
+export const commentTextArea = uploadModal.querySelector(
+  '[name="description"]'
+);
+export const uploadCancelButton = document.querySelector('#upload-cancel');
+export const imgPreview = uploadForm.querySelector('.img-upload__preview');
+export const imgPreviewFile = imgPreview.querySelector('img');
+export const imgMiniPreviews = uploadForm.querySelectorAll('.effects__preview');
+export const sliderEffectWrapper = uploadForm.querySelector('.effect-level');
+export const sliderEffectIntensity = uploadForm.querySelector(
+  '.effect-level__slider'
+);
+export const effectIntensityInput = uploadForm.querySelector(
+  '.effect-level__value'
+);
+export const noImgEffectInput = uploadForm.querySelector('#effect-none');
+export const uploadSubmitButton = document.querySelector('#upload-submit');
+export const effectsList = document.querySelector('.effects');
 
 //Изменение масштаба превью изображения в форме редактирования
-const imgScale = document.querySelector('.scale');
-const imgScaleBiggerButton = imgScale.querySelector('.scale__control--bigger');
-const imgScaleSmallerButton = imgScale.querySelector(
+export const imgScale = document.querySelector('.scale');
+export const imgScaleBiggerButton = imgScale.querySelector(
+  '.scale__control--bigger'
+);
+export const imgScaleSmallerButton = imgScale.querySelector(
   '.scale__control--smaller'
 );
-const imgScaleValue = imgScale.querySelector('.scale__control--value');
+export const imgScaleValue = imgScale.querySelector('.scale__control--value');
 
-export {
-  picturesContainer,
-  templatePicture,
-  uploadModal,
-  uploadForm,
-  uploadInput,
-  commentTextArea,
-  uploadCancelButton,
-  imgScale,
-  imgScaleBiggerButton,
-  imgScaleSmallerButton,
-  imgScaleValue,
-  imgPreviewFile,
-  sliderEffectIntensity,
-  effectIntensityInput,
-  sliderEffectWrapper,
-};
+//Модальные окна об ошибке и успехе в отправке фотографии
+export const templateSuccessModal = document
+  .querySelector('#success')
+  .content.querySelector('.success');
+
+export const successModalCloseButton = () =>
+  document.querySelector('.success__button');
+
+export const successModal = () => document.querySelector('.success');
+
+export const templateErrorModal = document
+  .querySelector('#error')
+  .content.querySelector('.error');
+
+export const errorModalCloseButton = () =>
+  document.querySelector('.error__button');
+
+export const errorModal = () => document.querySelector('.error');

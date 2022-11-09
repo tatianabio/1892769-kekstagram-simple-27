@@ -1,10 +1,10 @@
-import createPhotoDescriptionsArray from './data.js';
 import { picturesContainer, templatePicture } from './dom-elements.js';
+import { getImgData } from './api.js';
 
-const renderPictures = () => {
+export const renderPictures = async () => {
   const picturesFragment = document.createDocumentFragment();
 
-  const pictures = createPhotoDescriptionsArray();
+  const pictures = await getImgData();
 
   pictures.forEach(({ url, likes, comments }) => {
     const newPicture = templatePicture.cloneNode(true);
@@ -16,5 +16,3 @@ const renderPictures = () => {
 
   picturesContainer.append(picturesFragment);
 };
-
-export { renderPictures };
