@@ -25,10 +25,8 @@ const hideSliderEffect = () => {
 };
 
 export const clearImgEffect = () =>
-  imgPreviewFile.classList.forEach(
-    (item) =>
-      item.includes('effects__preview--') &&
-      imgPreviewFile.classList.remove(item)
+  imgPreviewFile.classList.forEach((item) =>
+    imgPreviewFile.classList.remove(item)
   );
 
 export const updateSlider = (effect) => {
