@@ -74,7 +74,7 @@ const showMessageModal = (template, closeButton, modal) => {
 
 const blockSubmitButton = (isBlocked = false) => {
   uploadSubmitButton.disabled = isBlocked;
-  uploadSubmitButton.textContent = isBlocked ? 'Публикация...' : 'Опубликовать';
+  uploadSubmitButton.textContent = isBlocked ? 'In progress...' : 'Submit';
 };
 
 export const onSubmitButtonClick = async (evt) => {

@@ -35,12 +35,12 @@
 
 ### Usage: step-by-step instruction
 
-1. Click on the `Upload button` and choose a photo you'd like to share
+1. Click on the `Upload button` and choose a photo you'd like to share.
 
-2. Change the scale of the photo and click the filter you'd like to apply (if necessary)
+2. Change the scale of the photo and click the filter you'd like to apply (if necessary).
 
 3. Adjust the filter strength using the slider under the photo (if necessary).
 
-4. Add a caption. This must contain only 20-120 symbols.
+4. Add a caption. This must contain 20-140 symbols.
 
 5. Click on the `Submit button` to send your photo to a server.
