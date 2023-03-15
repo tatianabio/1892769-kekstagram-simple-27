@@ -23,17 +23,18 @@
 * Implemented form validator will notify if the caption's requirements aren't met.
 
 ---
-### Limitations
+## Limitations
 1. Displaying submitted photos on the main page is NOT enabled.
-2. You can't see comments for other photos
+2. You can't see comments for other photos.
+3. Isn't fully adapted for mobile devices.
 
 ---
 
-### Usage: video overview
+## Usage: video overview
 
 ![Instruction: how to submit a new photo](gif/video-instruction.gif)
 
-### Usage: step-by-step instruction
+## Usage: step-by-step instruction
 
 1. Click on the `Upload button` and choose a photo you'd like to share.
 
@@ -41,6 +42,6 @@
 
 3. Adjust the filter strength using the slider under the photo (if necessary).
 
-4. Add a caption. This must contain 20-140 symbols.
+4. Add a caption that contain 20-140 symbols.
 
 5. Click on the `Submit button` to send your photo to a server.
