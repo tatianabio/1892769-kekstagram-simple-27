@@ -1,51 +1,41 @@
-# Личный проект «Кекстаграм (простой)»
+# Graduation project «Kekstagram»
 
-* Студент: [Tatiana Pugacheva](https://up.htmlacademy.ru/javascript/27/user/1892769).
-* Наставник: [Алексей Зольников](https://htmlacademy.ru/profile/id870391).
+[Deployed app](https://kekstagram.herokuapp.com/)
 
----
-
-_Не удаляйте и не изменяйте самовольно файлы и папки:_
-_`.editorconfig`, `.eslintrc`, `.gitattributes`, `.gitignore`, `package-lock.json`, `package.json`., `.github`_
+* Student: [Tatiana Pugacheva](https://up.htmlacademy.ru/javascript/27/user/1892769).
+* Mentor: [Alexei Zolnikov](https://htmlacademy.ru/profile/id870391).
+* [HTML Academy](https://htmlacademy.ru/) online course: [JavaScript: Professional Development of Web Interfaces](https://htmlacademy.ru/intensive/javascript)
 
 ---
 
-[Как работать с Git на проекте](Contributing.md) | [Как работать над проектом](Workflow.md)
+## Used technologies
 
-### Памятка
+* Languages: _JavaScript_
+* Form validator: _PristineJS_
+* Server: _Heroku_
 
-#### 1. Зарегистрируйтесь на Гитхабе
+---
+## Brief description
 
-Если у вас ещё нет аккаунта на [github.com](https://github.com/join), скорее зарегистрируйтесь.
-
-#### 2. Создайте форк
-
-Откройте репозиторий и нажмите кнопку «Fork» в правом верхнем углу. Репозиторий из Академии будет скопирован в ваш аккаунт.
-
-<img width="769" alt="" src="https://user-images.githubusercontent.com/10909/35275222-1d624452-0050-11e8-8aca-06d2832724ce.png">
-
-Получится вот так:
-
-<img width="769" alt="" src="https://user-images.githubusercontent.com/10909/35275223-1d7cf9fa-0050-11e8-829b-98ac3c9a4f8b.png">
-
-#### 3. Клонируйте репозиторий на свой компьютер
-
-Будьте внимательны: нужно клонировать свой репозиторий (форк), а не репозиторий Академии. Также обратите внимание, что клонировать репозиторий нужно через SSH, а не через HTTPS. Нажмите зелёную кнопку в правой части экрана, чтобы скопировать SSH-адрес вашего репозитория:
-
-<img width="769" alt="" src="https://user-images.githubusercontent.com/10909/35275224-1d97a7dc-0050-11e8-89f9-41c9a7b2ae9c.png">
-
-Клонировать репозиторий можно так:
-
-```
-git clone SSH-адрес_вашего_форка
-```
-
-Команда клонирует репозиторий на ваш компьютер и подготовит всё необходимое для старта работы.
-
-#### 4. Начинайте обучение!
+* "Kekstagram" is a website for sharing photos.
+* You can edit your uploaded photo by changing the scale and/or by applying filters.
+* Uploading a photo, it's also necessary to add a caption containing 20-120 symbols.
+* Implemented form validator will notify if the caption's requirements aren't met.
+* Limitation No.1: displaying submitted photos on the main page is NOT enabled.
+* Limitation No.2: you can't see comments for other photos.
 
 ---
 
-<a href="https://htmlacademy.ru/intensive/javascript"><img align="left" width="50" height="50" alt="HTML Academy" src="https://up.htmlacademy.ru/static/img/intensive/javascript/logo-for-github-2.png"></a>
+### Usage: video instruction
 
-Репозиторий создан для обучения на интенсивном онлайн‑курсе «[JavaScript. Профессиональная разработка веб-интерфейсов](https://htmlacademy.ru/intensive/javascript)» от [HTML Academy](https://htmlacademy.ru).
+### Usage: step-by-step instruction
+
+1. Click on the _'Upload'_ button and choose a photo you'd like to share
+
+2. Change the scale of the photo and click the filter you'd like to apply (if necessary)
+
+3. Adjust the filter strength using the slider under the photo (if necessary).
+
+4. Add a caption. This must contain only 20-120 symbols.
+
+5. Click on the _'Submit'_ to send your photo to a server.
