@@ -28,6 +28,8 @@
 
 ### Usage: video instruction
 
+![]()
+
 ### Usage: step-by-step instruction
 
 1. Click on the _'Upload'_ button and choose a photo you'd like to share
