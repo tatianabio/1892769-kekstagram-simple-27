@@ -20,7 +20,7 @@
 
 * "Kekstagram" is a website for sharing photos.
 * You can edit your uploaded photo by changing the scale and/or by applying filters.
-* When uploading a photo, it's also necessary to add a caption containing 20-140 symbols.
+* When uploading a photo, it's also necessary to add a caption containing 20-140 characters.
 * Implemented form validator will notify if the caption's requirements aren't met.
 
 ---
@@ -43,6 +43,6 @@
 
 3. Adjust the filter strength using the slider under the photo (if necessary).
 
-4. Add a caption that contain 20-140 symbols.
+4. Add a caption that contain 20-140 characters.
 
 5. Click on the `Submit button` to send your photo to a server.

@@ -40,7 +40,7 @@ const validateCommentTextArea = (value) =>
 pristine.addValidator(
   commentTextArea,
   validateCommentTextArea,
-  `Enter between ${COMMENT_MIN_LENGTH} and ${COMMENT_MAX_LENGTH} characters`
+  `Caption should contain ${COMMENT_MIN_LENGTH}-${COMMENT_MAX_LENGTH} characters`
 );
 
 const showMessageModal = (template, closeButton, modal) => {
