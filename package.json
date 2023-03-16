@@ -1,9 +1,9 @@
 {
-  "name": "kekstagram-simple",
+  "name": "kekstagram",
   "homepage": ".",
   "version": "27.0.0",
   "private": true,
-  "description": "Личный проект «Кекстаграм (простой)» от HTML Academy",
+  "description": "Graduation project Kekstagram in HTML Academy JavaScript course",
   "repository": {
     "type": "git",
     "url": "git@github.com:htmlacademy-javascript/1892769-kekstagram-simple-27.git"
