@@ -10,7 +10,8 @@
 
 ## Used technologies
 
-* Languages: `JavaScript`
+* Language: `JavaScript`
+* Web API: `Fetch API`
 * Form validator: `PristineJS`
 * Deployment: `Heroku`
 
