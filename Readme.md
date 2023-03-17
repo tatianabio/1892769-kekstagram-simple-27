@@ -31,9 +31,9 @@
 
 ---
 
-## Usage: video overview
+## Usage: demo video
 
-![Instruction: how to submit a new photo](gif/video-instruction.gif)
+![Instruction: how to submit a new photo](gif/usage-demo.gif)
 
 ## Usage: step-by-step instruction
 
