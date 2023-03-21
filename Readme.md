@@ -23,6 +23,10 @@
 * When uploading a photo, it's also necessary to add a caption containing 20-140 characters.
 * Implemented form validator will notify if the caption's requirements aren't met.
 
+## Usage: demo video
+
+![Instruction: how to submit a new photo](gif/usage-demo.gif)
+
 ---
 ## Limitations
 1. Displaying submitted photos on the main page is NOT enabled.
@@ -30,10 +34,6 @@
 3. Isn't fully adapted for mobile devices.
 
 ---
-
-## Usage: demo video
-
-![Instruction: how to submit a new photo](gif/usage-demo.gif)
 
 ## Usage: step-by-step instruction
 
