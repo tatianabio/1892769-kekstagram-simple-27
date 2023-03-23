@@ -33,6 +33,8 @@
 
 ![Instruction: how to submit a new photo](gif/usage-demo.gif)
 
+![Instruction: how to submit a new photo](gif/demo-photos.gif)
+
 ---
 
 ## Usage: step-by-step instruction
